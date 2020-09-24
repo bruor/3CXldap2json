@@ -48,7 +48,7 @@ class LDAPDirectory (object):
         logging.info('Connecting to %s' % uri)
         self.dir    = ldap.initialize(uri)
         self.dir.set_option(ldap.OPT_REFERRALS,0)
-	      self.dir.simple_bind_s('_username_', '_password_') 
+        self.dir.simple_bind_s('_username_', '_password_') 
 
     def search(self, **kwargs):
         '''Turns kwargs into an LDAP search filter, executes the search,
