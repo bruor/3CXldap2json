@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<Crm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Country="US" Name="ldap2json" Version="1">
+  <Number Prefix="AsIs" MaxLength="[MaxLength]" />
+  <Connection MaxConcurrentRequests="2" />
+  <Parameters />
+  <Authentication Type="No" />
+  <Scenarios>
+    <Scenario Id="" Type="REST">
+      <Request SkipIf="" Url="http://host.domain.com:8080/ldap?|(telephoneNumber=[Number])(mobile=[Number])" MessagePasses="0" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">mobile</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactID" Path="cn">
+          <Filter />
+        </Variable>
+        <Variable Name="FirstName" Path="givenName">
+          <Filter />
+        </Variable>
+        <Variable Name="LastName" Path="sn">
+          <Filter />
+        </Variable>
+        <Variable Name="CompanyName" Path="company">
+          <Filter />
+        </Variable>
+        <Variable Name="Email" Path="mail">
+          <Filter />
+        </Variable>
+        <Variable Name="PhoneBusiness" Path="telephoneNumber">
+          <Filter />
+        </Variable>
+        <Variable Name="PhoneMobile" Path="mobile">
+          <Filter />
+        </Variable>
+        <Variable Name="PhoneMobile2" Path="otherMobile">
+          <Filter />
+        </Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactID" Passes="0" Value="[ContactID]" />
+        <Output Type="FirstName" Passes="0" Value="[FirstName]" />
+        <Output Type="LastName" Passes="0" Value="[LastName]" />
+        <Output Type="CompanyName" Passes="0" Value="[CompanyName]" />
+        <Output Type="Email" Passes="0" Value="[Email]" />
+        <Output Type="PhoneBusiness" Passes="0" Value="[PhoneBusiness]" />
+        <Output Type="PhoneMobile" Passes="0" Value="[PhoneMobile]" />
+        <Output Type="PhoneMobile2" Passes="0" Value="[PhoneMobile2]" />
+      </Outputs>
+    </Scenario>
+  </Scenarios>
+</Crm>
