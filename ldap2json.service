@@ -1,0 +1,11 @@
+[Unit]
+Description=LDAP2JSON
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/ldap2json.py -f /etc/ldap2json.conf
+StandardInput=tty-force
+
+[Install]
+WantedBy=multi-user.target
